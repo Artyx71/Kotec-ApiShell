@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DiceBear API Example</title>
+  </head>
+  <body>
+    <div id="avatar-container">
+      <img style="height: 50px; width: 50px" id="avatar-img" src="" />
+    </div>
+
+    <button onclick="generateAvatar()">Generate Avatar</button>
+
+    <script>
+      function generateAvatar() {
+        var baseUrl = "https://api.dicebear.com/6.x/pixel-art/svg";
+        var queryParams =
+          "?options[mood][]=happy&options[mood][]=surprised&options[top][]=shortHairDreads&options[top][]=longHairStraight&options[accessories][]=roundGlasses";
+
+        // Генерация случайного числа для добавления к URL, чтобы изображение не кэшировалось
+        var randomInt = Math.floor(Math.random() * 1000);
+
+        var avatarUrl = baseUrl + queryParams + "&cache=" + randomInt;
+        document.getElementById("avatar-img").src = avatarUrl;
+      }
+    </script>
+  </body>
+</html>
